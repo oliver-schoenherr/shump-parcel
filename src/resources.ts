@@ -9,19 +9,19 @@ import laser_sound from "./sounds/laser.mp3";
 import hit_sound from "./sounds/hit.mp3";
 
 const Images = {
-  Ship: new ImageSource(ship),
-  ShipExplosion: new ImageSource(ship_explosion),
-  Laser: new ImageSource(laser),
-  Asteroid: new ImageSource(asteroid),
-  StaticBackground: new ImageSource(static_background),
-  BackgroundTile: new ImageSource(background_tile),
+    Ship: new ImageSource(ship),
+    ShipExplosion: new ImageSource(ship_explosion),
+    Laser: new ImageSource(laser),
+    Asteroid: new ImageSource(asteroid),
+    StaticBackground: new ImageSource(static_background),
+    BackgroundTile: new ImageSource(background_tile),
 }
 
 const Sounds = {
-  Laser: new Sound(laser_sound),
-  Hit: new Sound(hit_sound),
+    Laser: new Sound(laser_sound),
+    Hit: new Sound(hit_sound),
 }
 
 const loader = new Loader([...Object.values(Images), ...Object.values(Sounds)]);
 
-export { Images, Sounds, loader };
+export {Images, Sounds, loader};

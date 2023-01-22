@@ -1,25 +1,27 @@
 import {Animation, Component} from "excalibur";
 
 export class DestroyedComponent extends Component {
-  type = 'os.destroyed'
-  private _animation: Animation;
-  private _started: boolean;
+    type = 'os.destroyed'
 
-  constructor(animation) {
-    super();
-    this._animation = animation;
-    this._started = false;
-  }
+    constructor(animation) {
+        super();
+        this._animation = animation;
+        this._started = false;
+    }
 
-  get animation() {
-    return this._animation;
-  }
+    private _animation: Animation;
 
-  get started() {
-    return this._started;
-  }
+    get animation() {
+        return this._animation;
+    }
 
-  set started(flag) {
-    this._started = flag;
-  }
+    private _started: boolean;
+
+    get started() {
+        return this._started;
+    }
+
+    set started(flag) {
+        this._started = flag;
+    }
 }

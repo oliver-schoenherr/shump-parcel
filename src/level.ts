@@ -9,14 +9,14 @@ import {DestroyedSystem} from "./destroyed_system";
 
 export class Level extends Scene {
 
-  onInitialize(engine) {
-    this.add(new StaticBackground(engine));
-    this.add(new BackgroundManager());
-    this.add(new Player());
-    Asteroid.startSpawner(engine);
-    this.camera.vel = vec(0,-20);
-    this.world.add(new PlayerInputSystem(engine));
-    this.world.add(new PlayerMovementSystem());
-    this.world.add(new DestroyedSystem());
-  }
+    onInitialize(engine) {
+        this.add(new StaticBackground(engine));
+        this.add(new BackgroundManager());
+        this.add(new Player());
+        Asteroid.startSpawner(engine);
+        this.camera.vel = vec(0, -20);
+        this.world.add(new PlayerInputSystem(engine));
+        this.world.add(new PlayerMovementSystem());
+        this.world.add(new DestroyedSystem());
+    }
 }

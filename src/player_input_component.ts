@@ -1,28 +1,30 @@
 import {Component, Vector} from "excalibur";
 
 export class PlayerInputComponent extends Component {
-  type = 'os.player_input'
-  protected _direction: Vector;
-  private _fire: boolean;
+    type = 'os.player_input'
 
-  constructor() {
-    super();
-    this._direction = Vector.Zero;
-  }
+    constructor() {
+        super();
+        this._direction = Vector.Zero;
+    }
 
-  get direction() {
-    return this._direction;
-  }
+    protected _direction: Vector;
 
-  set direction(newDirection) {
-    this._direction = newDirection;
-  }
+    get direction() {
+        return this._direction;
+    }
 
-  get fire() {
-    return this._fire;
-  }
+    set direction(newDirection) {
+        this._direction = newDirection;
+    }
 
-  set fire(newFire) {
-    this._fire = newFire;
-  }
+    private _fire: boolean;
+
+    get fire() {
+        return this._fire;
+    }
+
+    set fire(newFire) {
+        this._fire = newFire;
+    }
 }
