@@ -1,8 +1,27 @@
-import {  ImageSource } from "excalibur";
-import sword from "./images/sword.png"; // for parcelv2 this is configured in the .parcelrc
+import {ImageSource, Loader, Sound} from "excalibur";
+import ship from "./images/ship.png";
+import ship_explosion from "./images/ship_explosion.png";
+import laser from "./images/laser.png";
+import asteroid from "./images/asteroid.png";
+import static_background from "./images/static_background.png";
+import background_tile from "./images/background_tile.png";
+import laser_sound from "./sounds/laser.mp3";
+import hit_sound from "./sounds/hit.mp3";
 
-let Resources = {
-  Sword: new ImageSource(sword)
-};
+const Images = {
+  Ship: new ImageSource(ship),
+  ShipExplosion: new ImageSource(ship_explosion),
+  Laser: new ImageSource(laser),
+  Asteroid: new ImageSource(asteroid),
+  StaticBackground: new ImageSource(static_background),
+  BackgroundTile: new ImageSource(background_tile),
+}
 
-export { Resources };
+const Sounds = {
+  Laser: new Sound(laser_sound),
+  Hit: new Sound(hit_sound),
+}
+
+const loader = new Loader([...Object.values(Images), ...Object.values(Sounds)]);
+
+export { Images, Sounds, loader };

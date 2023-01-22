@@ -1,20 +1,19 @@
-import { Actor, Color, DisplayMode, Engine, Loader } from "excalibur";
-import { Player } from "./player";
-import { Resources } from "./resources";
+import {Color, Engine} from 'excalibur'
+import {loader} from "./resources";
+import {Level} from "./level";
 
-class Game extends Engine {
-    constructor() {
-      super({width: 800, height: 600});
-    }
-    initialize() {
-      
-      const player = new Player();
-      this.add(player);
+export function start() {
+  const game = new Engine({
+    width: 800,
+    height: 600,
+    antialiasing: false,
+    backgroundColor: Color.Black
+  });
 
-      const loader = new Loader([Resources.Sword]);
-      this.start(loader);
-    }
-  }
-  
-  export const game = new Game();
-  game.initialize();
+  game.start(loader).then(() => {
+    const level = new Level();
+    game.addScene("main", level);
+    game.goToScene("main");
+  })
+}
+

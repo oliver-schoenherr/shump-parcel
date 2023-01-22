@@ -10,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@excaliburjs/testing": "0.25.1",
     "excalibur": "0.27.0",
-    "typescript": "4.9.4",
-    "@excaliburjs/testing": "0.25.1"
+    "typescript": "4.9.4"
   },
   "devDependencies": {
+    "events": "^3.3.0",
     "parcel": "2.8.2"
   }
 }

@@ -13,9 +13,8 @@ import {Images, Sounds} from "./resources";
 import {PlayerInputComponent} from "./player_input_component";
 import {PlayerLaser} from "./player_laser";
 import {Asteroid} from "./asteroid";
-import {DestroyedComponent} from "./destroyed_component";
 
-export class Player extends Actor {
+export class Ship extends Actor {
   private delayFire: boolean;
   constructor() {
     super({
@@ -31,9 +30,6 @@ export class Player extends Actor {
   onInitialize(engine) {
     this.addComponent(new PlayerInputComponent());
     this.on('collisionstart', this.onCollisionStart.bind(this))
-    this.on('kill', () => {
-      engine.stop();
-    })
 
     this.graphics.use(new Sprite({
         image: Images.Ship,
@@ -48,18 +44,8 @@ export class Player extends Actor {
   onCollisionStart(evt) {
     if(evt.other instanceof Asteroid){
       Sounds.Hit.play();
-      const explosionAnimation = Animation.fromSpriteSheet(SpriteSheet.fromImageSource({
-        image: Images.ShipExplosion,
-        grid: {
-          rows: 1,
-          columns: 6,
-          spriteHeight: Images.ShipExplosion.height,
-          spriteWidth: Images.ShipExplosion.width / (6 * 4),
-        },
-      }), range(0, 5), 200);
-      explosionAnimation.strategy = AnimationStrategy.End;
-
-      this.addComponent(new DestroyedComponent(explosionAnimation))    }
+      this.kill();
+    }
   }
 
   onPostUpdate(engine, delta) {
